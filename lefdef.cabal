@@ -1,0 +1,41 @@
+name:                lefdef
+version:             0.1.0.0
+synopsis:            Initial attempt at parsing LEF and DEF files.
+description:         Please see README.md
+homepage:            https://github.com/boonejs/lefdef#readme
+license:             BSD3
+license-file:        LICENSE
+author:              boone.severson@gmail.com
+maintainer:          boone.severson@gmail.com
+copyright:           2016 Boone Severson
+category:            Web
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable lefdef-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , lefdef
+  default-language:    Haskell2010
+
+test-suite lefdef-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , lefdef
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/boonejs/lefdef
